@@ -15,6 +15,12 @@
     @Html.LabelFor(model => model.Name);
     @Html.EditorFor(model => model.Name);
 
+    @Html.LabelFor(model => model.Specialty);
+    @Html.EditorFor(model => model.Specialty);
+
+    @Html.LabelFor(model => model.YearsWorked, "Years Worked");
+    @Html.EditorFor(model => model.YearsWorked);
+
     <input type="submit" value="Save">
 }
 
