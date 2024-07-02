@@ -5,26 +5,38 @@
 @model HairSalon.Models.Stylist
 @using HairSalon.Models
 
-<h4>Stylist Details</h4>
-<p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
-<p>@Html.DisplayNameFor(model => model.Specialty): @Html.DisplayFor(model => model.Specialty)</p>
-<p>Years Worked: @Html.DisplayFor(model => model.YearsWorked)</p>
+<div class="card">
+  <h1 class="text-center card-header">@Html.DisplayFor(model => model.Name)</h1>
+  <div class="card-body">
+    <div class="row justify-content-evenly">
+      <p class="col-auto">@Html.DisplayNameFor(model => model.Specialty): @Html.DisplayFor(model => model.Specialty)</p>
+      <p class="col-auto">Years Worked: @Html.DisplayFor(model => model.YearsWorked)</span>
+    </div>
 
-@if (@Model.Clients.Count == 0)
-{
-  <h4>No clients have been assigned to this stylist yet!</h4>
-} 
-else
-{
-  <h4>Clients:</h4>
-  <ul>
-    @foreach (Client client in Model.Clients)
+    @if (@Model.Clients.Count == 0)
     {
-      <li>@client.Name @Html.ActionLink("Delete client", "Delete", "Clients", new { id = client.ClientId }, new { @class = "btn btn-outline-danger", @style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .25rem; --bs-btn-font-size: .35rem;" })</li>
+      <h4>No clients have been assigned to this stylist yet!</h4>
+    } 
+    else
+    {
+      <h4>Clients:</h4>
+      <ul class="list-group">
+        @foreach (Client client in Model.Clients)
+        {
+          <li class="list-group-item">@client.Name @Html.ActionLink("Delete", "Delete", "Clients", new { id = client.ClientId }, new { @class = "btn btn-outline-danger float-end", @style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .25rem; --bs-btn-font-size: .35rem;" })</li>
+        }
+      </ul>
     }
-  </ul>
-}
-
-<p>@Html.ActionLink("Edit stylist", "Edit", new { id = Model.StylistId })</p>
-<p>@Html.ActionLink("Delete stylist", "Delete", new { id = Model.StylistId })</p>
-<p>@Html.ActionLink("Back to stylists", "Index")</p>
+    <div class="row mt-3 justify-content-evenly">
+      <div class="col-auto">
+        <p>@Html.ActionLink("Edit stylist", "Edit", new { id = Model.StylistId })</p>
+      </div>
+      <div class="col-auto">
+        <p>@Html.ActionLink("Delete stylist", "Delete", new { id = Model.StylistId })</p>
+      </div>
+      <div class="col-auto">
+        <p>@Html.ActionLink("Back to stylists", "Index")</p>
+      </div>
+    </div>
+  </div>
+</div>
