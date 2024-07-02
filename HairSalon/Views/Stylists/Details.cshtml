@@ -20,7 +20,7 @@ else
   <ul>
     @foreach (Client client in Model.Clients)
     {
-      <li>@client.Name - @Html.ActionLink("Delete client", "Delete", "Clients", new { id = client.ClientId })</li>
+      <li>@client.Name @Html.ActionLink("Delete client", "Delete", "Clients", new { id = client.ClientId }, new { @class = "btn btn-outline-danger", @style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .25rem; --bs-btn-font-size: .35rem;" })</li>
     }
   </ul>
 }
