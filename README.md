@@ -16,7 +16,7 @@
 
 ## Description
 
-This site allows users to track stylists in a hair salon, adding, editing and deleting each stylists' details. They can also add clients to each of the stylists, both of which are done by filling out a form.
+This site allows users to track stylists in a hair salon, adding, editing and deleting each stylists' details. They can also add or delete clients to each of the stylists, both of which are done by filling out a form. Though an edit page for clients exists, it has not yet been implemented. 
 
 ## Setup/Installation Requirements
 
